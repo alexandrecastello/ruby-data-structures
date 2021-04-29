@@ -1,1 +1,1 @@
-# ruby-data-structures
+# Data Structures in Ruby
