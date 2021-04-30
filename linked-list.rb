@@ -95,13 +95,23 @@ class LinkedList
 	def find_by_data data
 		self.find_first { |item| item.data == data }
 	end
+
+	def insert_after target_data, data
+		previous_node = find_by_data(target_data)
+		return nil unless previous_node
+
+		node = Node.new data
+		node.next = previous_node.next
+		previous_node.next = node
+	end
 end
 
 
 # Testing:
 list = LinkedList.new
 list.insert 'whaaaaat'
-list.insert 'será que duncionou?'
+list.insert 'será que funcionou?'
+list.insert 'mais um teste'
 list.print
 list.remove list.find_by_data 'whaaaaat'
 list.print
@@ -111,5 +121,7 @@ list2.insert 1234
 list2.print
 
 list.cat list2
+list.print
+list.insert_after 'será que funcionou?', 'esse aqui'
 list.print
 
